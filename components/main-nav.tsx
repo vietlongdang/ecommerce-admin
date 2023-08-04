@@ -1,49 +1,52 @@
 'use client'
 
-import {cn} from "@/lib/utils";
-import {useParams, usePathname} from "next/navigation";
-import Link from "next/link";
+import { cn } from '@/lib/utils'
+import { useParams, usePathname } from 'next/navigation'
+import Link from 'next/link'
 
-export default function MainNav (
-    {className, ...props}: React.HTMLAttributes<HTMLElement>
-) {
-    const params = useParams()
-    const pathname = usePathname()
-    const routes = [
-        {
-            href: `/${params.storeId}`,
-            label: 'Overview',
-            active: pathname === `/${params.storeId}`
-        },
-        {
-            href: `/${params.storeId}/billboards`,
-            label: 'Billboards',
-            active: pathname === `/${params.storeId}/billboards`
-        },
-        {
-            href: `/${params.storeId}/settings`,
-            label: 'Settings',
-            active: pathname === `/${params.storeId}/settings`
-        }
-    ]
+export default function MainNav({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLElement>) {
+  const params = useParams()
+  const pathname = usePathname()
+  const routes = [
+    {
+      href: `/${params.storeId}`,
+      label: 'Overview',
+      active: pathname === `/${params.storeId}`,
+    },
+    {
+      href: `/${params.storeId}/billboards`,
+      label: 'Billboards',
+      active: pathname === `/${params.storeId}/billboards`,
+    },
+    {
+      href: `/${params.storeId}/settings`,
+      label: 'Settings',
+      active: pathname === `/${params.storeId}/settings`,
+    },
+  ]
 
-    return (
-        <nav
-            className={cn("flex items-center space-x-4 lg:space-x-6", className)}
-            {...props}
+  return (
+    <nav
+      className={cn('flex items-center space-x-4 lg:space-x-6', className)}
+      {...props}
+    >
+      {routes.map((route) => (
+        <Link
+          key={route.href}
+          href={route.href}
+          className={cn(
+            'text-sm font-medium transition-colors hover:text-primary',
+            route.active
+              ? 'text-black dark:text-white'
+              : 'text-muted-foreground',
+          )}
         >
-            {routes.map((route) => (
-                <Link
-                    key={route.href}
-                    href={route.href}
-                    className={cn(
-                        'text-sm font-medium transition-colors hover:text-primary',
-                        route.active ? 'text-black dark:text-white' : 'text-muted-foreground'
-                    )}
-                >
-                    {route.label}
-                </Link>
-            ))}
-        </nav>
-    )
+          {route.label}
+        </Link>
+      ))}
+    </nav>
+  )
 }
