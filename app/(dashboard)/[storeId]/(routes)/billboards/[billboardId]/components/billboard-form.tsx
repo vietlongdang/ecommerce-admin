@@ -9,7 +9,6 @@ import { toast } from "react-hot-toast"
 import { Trash } from "lucide-react"
 import { Billboard } from "@prisma/client"
 import { useParams, useRouter } from "next/navigation"
-
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import {
@@ -34,19 +33,19 @@ type BillboardFormValues = z.infer<typeof formSchema>
 
 interface BillboardFormProps {
     initialData: Billboard | null;
-};
+}
 
 export const BillboardForm: React.FC<BillboardFormProps> = ({
     initialData
 }) => {
-    const params = useParams();
-    const router = useRouter();
+    const params = useParams()
+    const router = useRouter()
 
-    const [open, setOpen] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [open, setOpen] = useState(false)
+    const [loading, setLoading] = useState(false)
 
-    const title = initialData ? 'Edit billboard' : 'Create billboard';
-    const description = initialData ? 'Edit a billboard.' : 'Add a new billboard';
+    const title = initialData ? 'Edit billboard' : 'Create billboard'
+    const description = initialData ? 'Edit a billboard.' : 'Add a new billboard'
     const toastMessage = initialData ? 'Billboard updated.' : 'Billboard created.';
     const action = initialData ? 'Save changes' : 'Create';
 

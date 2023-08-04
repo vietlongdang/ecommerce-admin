@@ -1,5 +1,4 @@
 import prismadb from "@/lib/prismadb";
-import Navbar from "@/components/navbar";
 
 interface DashboardPageProps {
     params: { storeId: string}
@@ -11,7 +10,6 @@ export default async function DashboardPage({params}: DashboardPageProps) {
     })
     return (
         <div>
-            <Navbar />
             Active Store: {store?.name}
         </div>
     )

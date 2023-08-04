@@ -1,15 +1,13 @@
-import {redirect} from "next/navigation";
-import {auth} from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs";
 import prismadb from "@/lib/prismadb";
-import {SettingsForm} from "@/app/(dashboard)/[storeId]/(routes)/settings/components/settings-form";
+import { SettingsForm } from "./components/settings-form";
 
-interface SettingsPageProps {
-    params: {
-        storeId: string
-    }
-}
-
-export default async function SettingsPage({params}: SettingsPageProps) {
+export default async function SettingsPage ({
+    params
+}: {
+    params: { storeId: string }
+}) {
     const { userId } = auth();
 
     if (!userId) {
@@ -28,10 +26,10 @@ export default async function SettingsPage({params}: SettingsPageProps) {
     }
 
     return (
-        <div className="flex-col">
-            <div className="flex-1 space-y-4 p-8 pt-6">
-                <SettingsForm initialData={store} />
-            </div>
-        </div>
+      <div className="flex-col">
+          <div className="flex-1 space-y-4 p-8 pt-6">
+              <SettingsForm initialData={store} />
+          </div>
+      </div>
     );
 }

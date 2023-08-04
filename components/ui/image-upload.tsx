@@ -43,6 +43,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
                         </div>
                         <Image
                             fill
+                            // sizes="md"
                             className="object-cover"
                             alt="Image"
                             src={url}
