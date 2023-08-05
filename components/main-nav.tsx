@@ -1,8 +1,9 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { useParams, usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { useParams, usePathname } from 'next/navigation'
+import React from 'react'
 
 export default function MainNav({
   className,
@@ -20,6 +21,16 @@ export default function MainNav({
       href: `/${params.storeId}/billboards`,
       label: 'Billboards',
       active: pathname === `/${params.storeId}/billboards`,
+    },
+    {
+      href: `/${params.storeId}/categories`,
+      label: 'Categories',
+      active: pathname === `/${params.storeId}/categories`,
+    },
+    {
+      href: `/${params.storeId}/sizes`,
+      label: 'Sizes',
+      active: pathname === `/${params.storeId}/sizes`,
     },
     {
       href: `/${params.storeId}/settings`,

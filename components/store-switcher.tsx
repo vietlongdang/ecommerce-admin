@@ -1,9 +1,5 @@
 'use client'
 
-import * as React from 'react'
-import { Check, ChevronsUpDown, PlusCircle, Store } from 'lucide-react'
-
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
   Command,
@@ -20,7 +16,10 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { useStoreModal } from '@/hooks/use-store-modal'
+import { cn } from '@/lib/utils'
+import { Check, ChevronsUpDown, PlusCircle, Store } from 'lucide-react'
 import { useParams, useRouter } from 'next/navigation'
+import * as React from 'react'
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
 
