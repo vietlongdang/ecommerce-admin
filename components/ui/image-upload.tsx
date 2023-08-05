@@ -33,33 +33,33 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
 
   return (
     <div>
-      <div className="mb-4 flex items-center gap-4">
+      <div className='mb-4 flex items-center gap-4'>
         {value.map((url) => (
           <div
             key={url}
-            className="relative w-[200px] h-[200px] rounded-md overflow-hidden"
+            className='relative w-[200px] h-[200px] rounded-md overflow-hidden'
           >
-            <div className="z-10 absolute top-2 right-2">
+            <div className='z-10 absolute top-2 right-2'>
               <Button
-                type="button"
+                type='button'
                 onClick={() => onRemove(url)}
-                variant="destructive"
-                size="sm"
+                variant='destructive'
+                size='sm'
               >
-                <Trash className="h-4 w-4" />
+                <Trash className='h-4 w-4' />
               </Button>
             </div>
             <Image
               fill
               // sizes="md"
-              className="object-cover"
-              alt="Image"
+              className='object-cover'
+              alt='Image'
               src={url}
             />
           </div>
         ))}
       </div>
-      <CldUploadWidget onUpload={onUpload} uploadPreset="uzvrhsx0">
+      <CldUploadWidget onUpload={onUpload} uploadPreset='uzvrhsx0'>
         {({ open }) => {
           const onClick = () => {
             open()
@@ -67,12 +67,12 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
 
           return (
             <Button
-              type="button"
+              type='button'
               disabled={disabled}
-              variant="secondary"
+              variant='secondary'
               onClick={onClick}
             >
-              <ImagePlus className="h-4 w-4 mr-2" />
+              <ImagePlus className='h-4 w-4 mr-2' />
               Upload an Image
             </Button>
           )
